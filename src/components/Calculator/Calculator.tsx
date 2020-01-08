@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import './Calculator.css';
+import Display from '../Display/Display'
 
 const Calculator: React.FC = () => {
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue, setDisplayValue] = useState('0');
   const [numbers, setNumbers] = useState([]);
   const [operators, setOperators] = useState([]);
   const [selectedOperator, setSelectedOperator] = useState('');
@@ -20,7 +22,9 @@ const Calculator: React.FC = () => {
   };
 
   return (
-    <div className="calculator-container"></div>
+    <div className="calculator-container">
+      <Display displayValue={displayValue} />
+    </div>
   );
 
 };

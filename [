@@ -1,0 +1,15 @@
+import React from "react";
+
+interface Props {
+  displayValue: string;
+}
+
+export type DisplayProps = Props;
+
+const Display: React.FC<Props> = ({ displayValue }) => {
+  return (
+    <div className="display-container" />
+  );
+};
+
+export default Display;

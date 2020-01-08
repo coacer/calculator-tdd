@@ -16,4 +16,6 @@ describe('App', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.containsMatchingElement(<Calculator />)).toEqual(true);
   });
+
+  it('should render correctly', () => expect(wrapper).toMatchSnapshot());
 });
