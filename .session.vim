@@ -8,16 +8,20 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +15 src/components/App/App.spec.tsx
-badd +15 src/index.css
+badd +43 src/index.css
 badd +5 src/components/Calculator/Calculator.css
-badd +11 src/components/Calculator/Calculator.tsx
-badd +12 src/components/Calculator/Calculator.spec.tsx
-badd +24 src/components/Display/Display.spec.tsx
-badd +12 src/components/Display/Display.tsx
+badd +30 src/components/Calculator/Calculator.tsx
+badd +20 src/components/Calculator/Calculator.spec.tsx
+badd +10 src/components/Display/Display.spec.tsx
+badd +8 src/components/Display/Display.tsx
 badd +5 src/components/App/App.tsx
+badd +6 src/components/Display/Display.css
+badd +6 src/components/Keypad/Keypad.tsx
+badd +91 ~/dotfiles/nvim/settings/plugins/neosnippet.rc.d/snippets/typescript.tsx.snip
+badd +9 src/components/Keypad/Keypad.spec.tsx
 argglobal
 %argdel
-edit src/index.css
+edit src/components/Calculator/Calculator.spec.tsx
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -42,15 +46,15 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 48 - ((33 * winheight(0) + 23) / 47)
+let s:l = 25 - ((17 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-48
-normal! 05|
+25
+normal! 06|
 wincmd w
 argglobal
-if bufexists("src/components/Display/Display.spec.tsx") | buffer src/components/Display/Display.spec.tsx | else | edit src/components/Display/Display.spec.tsx | endif
+if bufexists("src/components/Calculator/Calculator.tsx") | buffer src/components/Calculator/Calculator.tsx | else | edit src/components/Calculator/Calculator.tsx | endif
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -60,12 +64,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 19 - ((18 * winheight(0) + 23) / 47)
+let s:l = 25 - ((16 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-19
-normal! 05|
+25
+normal! 07|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 102 + 102) / 204)
 exe 'vert 2resize ' . ((&columns * 101 + 102) / 204)

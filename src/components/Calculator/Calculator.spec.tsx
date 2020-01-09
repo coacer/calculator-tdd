@@ -1,13 +1,12 @@
 import React from 'react';
-import {shallow, ShallowWrapper} from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import Calculator from './Calculator';
 import Display, { DisplayProps } from '../Display/Display';
-import Keypad, { KeypadProps } from '../Keypad/Keypad'
+import Keypad from '../Keypad/Keypad'
 
 describe('Calculator', () => {
   let wrapper: ShallowWrapper;
   let displayProps: DisplayProps;
-  let keypadProps: KeypadProps;
 
   beforeEach(() => wrapper = shallow(<Calculator />));
 
@@ -17,18 +16,10 @@ describe('Calculator', () => {
 
   it('should render the Display and Keypad Components', () => {
     displayProps = { displayValue: '0' };
-    keypadProps = {
-      numbers: [],
-      operators: [],
-      callOperator: (): void => {},
-      setOperator: (): void => {},
-      updateDisplay: (): void => {},
-    };
 
-    expect(wrapper.containsAllMatchingElements([
-      <Display {...displayProps} />,
-      <Keypad {...keypadProps} />,
-    ])).toEqual(true);
+    expect(wrapper.containsMatchingElement(<Display {...displayProps} />)).toEqual(true);
+    // containsMatchingElementだと関数がマッチしないためエラーになる
+    expect(wrapper.find(Keypad).length).toEqual(1);
   });
 });
 
