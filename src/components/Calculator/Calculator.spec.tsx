@@ -21,5 +21,7 @@ describe('Calculator', () => {
     // containsMatchingElementだと関数がマッチしないためエラーになる
     expect(wrapper.find(Keypad).length).toEqual(1);
   });
+
+  it('should render correctly', () => expect(wrapper).toMatchSnapshot());
 });
 
